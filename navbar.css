@@ -1,0 +1,211 @@
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Lorsque la navbar est masquée */
+.navbar-hidden {
+    top: -100px; /* Cache la navbar en la déplaçant vers le haut */
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.logo a span {
+    color: bisque;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-right: 30px;
+}
+
+.nav-links li {
+    margin-left: 40px;
+    position: relative; /* Pour le sous-menu */
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #333;
+    bottom: -5px;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: rgb(83, 79, 73);
+}
+
+/* Sous-menu */
+.sub-menu {
+    display: none; /* Masquer le sous-menu par défaut */
+    position: absolute; /* Positionner le sous-menu par rapport à l'élément parent */
+    top: 100%; /* Positionner le sous-menu juste en dessous de l'élément parent */
+    left: -15px;
+    background-color: #f9f9f9; /* Couleur de fond plus douce */
+    border: 1px solid #ccc; /* Bordure pour le sous-menu */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+    padding: 5px; /* Enlever le padding par défaut */
+    margin: 0; /* Enlever la marge par défaut */
+    list-style: none; /* Enlever les puces */
+}
+
+.nav-links > li:hover .sub-menu {
+    display: block; /* Afficher le sous-menu au survol */
+}
+
+.sub-menu li {
+    width: 100px; /* Largeur du sous-menu */
+ 
+ margin: 5px;
+}
+
+.sub-menu li a {
+    font-size: 14px;
+    color: #333; /* Couleur du texte dans le sous-menu */
+    
+   
+}
+.sub-menu li a:hover {
+    background-color: #33333311;
+    display: block;
+}
+
+/* Call-to-Action Button */
+.cta .btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.cta .btn:hover {
+    background-color: rgb(235, 199, 155);
+}
+.btn-checkout {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background-color: rgb(235, 199, 155);
+}
+
+/* Mobile Menu */
+.menu-toggle {
+    display: none; /* Masquer par défaut */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 2px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+/* Media Queries for Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed; 
+        top: 80px; /* Positionné juste sous la navbar */
+        right: -250px; /* Masqué par défaut */
+        height: 60vh; /* Prend toute la hauteur de l'écran */
+        width: 150px; /* Largeur du menu */
+        background-color: #fff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease; /* Transition pour l'animation */
+    }
+
+    .nav-links li {
+        margin: 14px 0;
+    }
+
+    .nav-links a {
+        font-size: 14px; /* Taille de police pour les liens */
+    }
+
+    .navbar.active .nav-links {
+        right: -30px; /* Affiche le menu en glissant depuis la droite */
+    }
+
+    .menu-toggle {
+        display: flex; /* Afficher le bouton toggle */
+        margin-right: -30px;
+    }
+
+    .navbar.active .menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); /* Animation pour le premier span */
+    }
+
+    .navbar.active .menu-toggle span:nth-child(2) {
+        opacity: 0; /* Cache le deuxième span */
+    }
+
+    .navbar.active .menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px); /* Animation pour le troisième span */
+    }
+}
+
+#arrow {
+    width: 10px; /* Largeur de l'icône flèche */
+}
+.btn-checkout {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+    background-color: rgb(235, 199, 155);
+}
